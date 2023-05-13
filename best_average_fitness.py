@@ -11,6 +11,8 @@ def main():
         average_fitness1 = average_fitness(population1, len(schema1))
         average_fitness2 = average_fitness(population2, len(schema2))
 
+        print(f"schema 1 {schema1}\nPopulation 1: {population1}")
+        print(f"schema 2 {schema2}\nPopulation 2: {population2}")
         print(f"Average fitness of schema 1 {schema1}: {average_fitness1}")
         print(f"Average fitness of schema 2 {schema2}: {average_fitness2}")
         print()
@@ -49,8 +51,8 @@ def string_to_list(string):
 
 def average_fitness(population: list, k: int) -> float:
     sum = 0
-    for schema in population:
-        bin_sum = binary_dig_sum(schema)
+    for individual in population:
+        bin_sum = binary_dig_sum(individual)
         sum += ga_cost_func(k, bin_sum)
 
     return sum / len(population)
